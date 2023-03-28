@@ -1,3 +1,7 @@
+using ContactsAPI.Data;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +10,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+//new code
+builder.Services.AddDbContext<ContactAPIDbContext>(options => options.UseInMemoryDatabase("CsharpBD"));
 
 var app = builder.Build();
 
